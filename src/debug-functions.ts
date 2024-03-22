@@ -1,4 +1,4 @@
-import { positions, viewer } from "./components";
+import { viewer } from "./viewer";
 
 export function AddControls()
 {
@@ -6,10 +6,5 @@ export function AddControls()
 
     removeAllButton.addEventListener("click", () => {
         viewer.entities.removeAll();
-    });
-
-    const savePolygonButton = document.getElementById("save-polygon");
-    savePolygonButton.addEventListener("click", () => {
-        positions.length = 0;
     });
 }
