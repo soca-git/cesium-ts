@@ -1,10 +1,7 @@
-import { viewer } from "./viewer";
+import { viewer } from "components";
 
 export function AddControls()
 {
     const removeAllButton = document.getElementById("remove-all");
-
-    removeAllButton.addEventListener("click", () => {
-        viewer.entities.removeAll();
-    });
+    removeAllButton.addEventListener("click", () => viewer.entities.removeAll());
 }

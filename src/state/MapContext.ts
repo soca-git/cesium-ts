@@ -1,11 +1,11 @@
-import { DrawPolygonMapState } from "./DrawPolygonMapState";
-import { IMapState } from "./IMapState";
+import { _IMapState } from "./internal/IMapState";
+import { DrawPolygonMapState } from "state";
 
 class MapContext
 {
-    private _state: IMapState;
+    private _state: _IMapState;
 
-    public transition(state: IMapState)
+    public transition(state: _IMapState)
     {
         this._state?.cancel();
         this._state = state;

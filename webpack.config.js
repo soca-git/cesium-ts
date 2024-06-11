@@ -18,20 +18,24 @@ module.exports = {
     resolve: {
         fallback: { "https": false, "zlib": false, "http": false, "url": false },
         mainFiles: ['app', 'Cesium'],
-        extensions: ['.ts', '.js']
+        extensions: ['.ts', '.js'],
+        alias: {
+            components: path.resolve(__dirname, "src/components/index"),
+            state: path.resolve(__dirname, "src/state/index"),
+        }
     },
     module: {
         rules: [{
             test: /\.css$/,
-            use: [ 'style-loader', 'css-loader' ]
+            use: ['style-loader', 'css-loader']
         }, {
             test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-            use: [ 'url-loader' ]
+            use: ['url-loader']
         }, {
             test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/
-        }]
+        }],
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -43,7 +47,7 @@ module.exports = {
                 { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
                 { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
                 { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
-		        { from: path.join(cesiumSource, 'ThirdParty'), to: 'ThirdParty' }
+                { from: path.join(cesiumSource, 'ThirdParty'), to: 'ThirdParty' }
             ]
         }),
         new webpack.DefinePlugin({

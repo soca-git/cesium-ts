@@ -1,6 +1,4 @@
-import "cesium/Build/Cesium/Widgets/widgets.css";
-import "./app.css";
-import { ArcGisBaseMapType, ArcGisMapServerImageryProvider, Camera, ImageryLayer, Rectangle, Viewer } from "cesium";
+import { ArcGisBaseMapType, ArcGisMapServerImageryProvider, ImageryLayer, Viewer } from "cesium";
 
 const arcGisImagery = ArcGisMapServerImageryProvider.fromBasemapType(ArcGisBaseMapType.SATELLITE);
 const options : Viewer.ConstructorOptions = {

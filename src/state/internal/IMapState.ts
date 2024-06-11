@@ -1,5 +1,5 @@
 
-export interface IMapState
+export interface _IMapState
 {
     initialize(): void;
 

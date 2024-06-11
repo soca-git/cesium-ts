@@ -1,8 +1,8 @@
 import { Math as CesiumMath, CallbackProperty, Cartesian2, Cartographic, Entity, HorizontalOrigin, ScreenSpaceEventHandler, ScreenSpaceEventType, VerticalOrigin, Color, PointGraphics, LabelGraphics } from "cesium";
-import { IMapState } from "./IMapState";
-import { viewer } from "../viewer";
+import { viewer } from "components";
+import { _IMapState } from "./internal/IMapState";
 
-export class DrawPolygonMapState implements IMapState
+export class DrawPolygonMapState implements _IMapState
 {
     private _eventHandler = new ScreenSpaceEventHandler();
     private _label = new Entity();
@@ -13,11 +13,11 @@ export class DrawPolygonMapState implements IMapState
         this._label = new Entity(
         {
             label: {
-              showBackground: true,
-              font: "14px monospace",
-              horizontalOrigin: HorizontalOrigin.LEFT,
-              verticalOrigin: VerticalOrigin.TOP,
-              pixelOffset: new Cartesian2(15, 0),
+                showBackground: true,
+                font: "14px monospace",
+                horizontalOrigin: HorizontalOrigin.LEFT,
+                verticalOrigin: VerticalOrigin.TOP,
+                pixelOffset: new Cartesian2(15, 0),
             },
         });
 
@@ -96,4 +96,4 @@ export class DrawPolygonMapState implements IMapState
     {
         throw new Error("Method not implemented.");
     }
-}
+}    
