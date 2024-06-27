@@ -1,5 +1,5 @@
 import { _IMapState } from "./internal/IMapState";
-import { DrawPolygonMapState } from "state";
+import { DefaultState } from "state";
 
 class MapContext
 {
@@ -15,7 +15,7 @@ class MapContext
     public defaultTransition()
     {
         this._state?.cancel();
-        this._state = new DrawPolygonMapState();
+        this._state = new DefaultState();
         this._state.initialize();
     }
 }
