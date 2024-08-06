@@ -22,6 +22,7 @@ module.exports = {
         alias: {
             components: path.resolve(__dirname, "src/components/index"),
             state: path.resolve(__dirname, "src/state/index"),
+            functions: path.resolve(__dirname, "src/functions/index"),
         }
     },
     module: {
