@@ -1,5 +1,7 @@
 import { Cartesian3, Cartographic, Entity, PolylineGraphics, ArcType, PolylineDashMaterialProperty, Color, EllipsoidRhumbLine, PointGraphics, CorridorGraphics } from "cesium";
-import { viewer } from "components";
+import { container } from "components";
+
+const viewer = container.Viewer;
 
 export function DrawGeodesicPolyline()
 {
@@ -44,17 +46,19 @@ export function DrawRhumblineCorridor()
     }
 
     rhumblineWaypoints.map(waypoint => {
-        const point = new Entity({
+        const point = container.PointEntityWrapperFactory.create({
             position: waypoint,
-            point: new PointGraphics({
+            point: {
                 pixelSize: 8,
                 color: Color.FIREBRICK.withAlpha(0.1),
                 outlineWidth: 2,
                 outlineColor: Color.FIREBRICK
-            })
+            }
         });
 
-        viewer.entities.add(point);
+        point.draw();
+        point.color = Color.BLUEVIOLET.withAlpha(0.5);
+        point.outlineColor = Color.BLUEVIOLET;
     });
     
     const rhumblineCorridor = new Entity({

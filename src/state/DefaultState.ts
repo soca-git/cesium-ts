@@ -1,20 +1,21 @@
-import { Cartographic, ScreenSpaceEventHandler, ScreenSpaceEventType } from "cesium";
+import { Cartographic, ScreenSpaceEventHandler, ScreenSpaceEventType, Viewer } from "cesium";
 import { _IMapState } from "./internal/IMapState";
-import { viewer } from "components";
 
 export class DefaultState implements _IMapState
 {
+    private readonly viewer: Viewer;
     private _eventHandler = new ScreenSpaceEventHandler();
 
-    constructor()
+    constructor(viewer: Viewer)
     {
+        this.viewer = viewer;
     }
 
     public initialize(): void
     {
         this._eventHandler.setInputAction((event: ScreenSpaceEventHandler.PositionedEvent) => 
         {
-            const xyz = viewer.camera.pickEllipsoid(event.position);
+            const xyz = this.viewer.camera.pickEllipsoid(event.position);
             
             if (!xyz)
             {

@@ -16,7 +16,10 @@
       ],
       "functions": [
         "src/functions/index"
-      ]
+      ],
+      "wrappers": [
+        "src/wrappers/index"
+      ],
     }
   }
 }
