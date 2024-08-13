@@ -1,3 +1,4 @@
+import "../ExtensionMethods";
 import { Cartesian3, ConstantPositionProperty, Viewer } from "cesium";
 import { PointEntity } from "./PointEntity";
 import { EntityWrapper } from "../EntityWrapper";
